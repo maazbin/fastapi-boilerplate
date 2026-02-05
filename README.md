@@ -40,10 +40,24 @@ venv\Scripts\activate  # Windows
 pip install -r requirements.txt
 ```
 
-3. Configure environment:
-```bash
-cp .env.example .env
-# Edit .env with your database credentials
+3. Create `.env` file in project root:
+```env
+# Database
+DB_HOST=localhost
+DB_PORT=5432
+DB_NAME=dbname
+DB_USER=user
+DB_PASS=password
+
+# Security
+SECRET_KEY=your-secret-key-change-in-production
+
+# Optional (defaults shown)
+# ALGORITHM=HS256
+# ACCESS_TOKEN_EXPIRE_MINUTES=30
+# DEBUG=false
+# PROJECT_NAME=FastAPI App
+# CORS_ORIGINS=["http://localhost:3000"]
 ```
 
 4. Run migrations (production) or set DEBUG=true for auto-create:
@@ -79,6 +93,10 @@ python main.py
 | DB_PASS | Yes | - | Database password |
 | SECRET_KEY | Yes | - | JWT secret key |
 | DEBUG | No | false | Enable debug mode (auto-creates tables) |
+| ALGORITHM | No | HS256 | JWT algorithm |
+| ACCESS_TOKEN_EXPIRE_MINUTES | No | 30 | Token expiry |
+| PROJECT_NAME | No | FastAPI App | App name |
+| CORS_ORIGINS | No | ["http://localhost:3000"] | Allowed origins |
 
 ## Extending
 
