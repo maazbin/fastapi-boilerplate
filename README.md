@@ -40,7 +40,7 @@ venv\Scripts\activate  # Windows
 pip install -r requirements.txt
 ```
 
-3. Create `.env` file in project root:
+3. Create `.env` file:
 ```env
 # Database
 DB_HOST=localhost
@@ -52,7 +52,7 @@ DB_PASS=password
 # Security
 SECRET_KEY=your-secret-key-change-in-production
 
-# Optional (defaults shown)
+# Optional
 # ALGORITHM=HS256
 # ACCESS_TOKEN_EXPIRE_MINUTES=30
 # DEBUG=false
@@ -74,29 +74,11 @@ python main.py
 
 ## API Endpoints
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| POST | `/api/v1/auth/register` | Register new user |
-| POST | `/api/v1/auth/login` | Login, get JWT |
-| POST | `/api/v1/auth/logout` | Logout (invalidate token) |
-| GET | `/api/v1/users/me` | Get current user profile |
-| GET | `/health` | Health check |
-
-## Environment Variables
-
-| Variable | Required | Default | Description |
-|----------|----------|---------|-------------|
-| DB_HOST | Yes | - | Database host |
-| DB_PORT | No | 5432 | Database port |
-| DB_NAME | Yes | - | Database name |
-| DB_USER | Yes | - | Database user |
-| DB_PASS | Yes | - | Database password |
-| SECRET_KEY | Yes | - | JWT secret key |
-| DEBUG | No | false | Enable debug mode (auto-creates tables) |
-| ALGORITHM | No | HS256 | JWT algorithm |
-| ACCESS_TOKEN_EXPIRE_MINUTES | No | 30 | Token expiry |
-| PROJECT_NAME | No | FastAPI App | App name |
-| CORS_ORIGINS | No | ["http://localhost:3000"] | Allowed origins |
+- `POST /api/v1/auth/register` - Register new user
+- `POST /api/v1/auth/login` - Login, get JWT
+- `POST /api/v1/auth/logout` - Logout (invalidate token)
+- `GET /api/v1/users/me` - Get current user profile
+- `GET /health` - Health check
 
 ## Extending
 
